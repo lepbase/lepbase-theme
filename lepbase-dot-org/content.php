@@ -24,8 +24,13 @@
 			</a>
 			<hr/>
 		<?php else : ?>
+		<?php $meta = get_post_meta(get_the_ID(), 'link', true); ?>
 		<h1 class="entry-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+			<?php if ($meta){ ?>
+				<a href="<?php echo $meta ?>" rel="bookmark"><?php the_title()?></a>
+			<?php } else { ?>
+				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+			<?php } ?>
 		</h1>
 		<?php endif; // is_single() ?>
 
@@ -38,7 +43,7 @@
 	<?php else : ?>
 	<div class="entry-content">
 		<?php $author = get_the_author(); ?>
-		<?php $date = the_modified_date('F jS Y','','',false); ?>
+		<?php $date = the_date('F jS Y','','',false); ?>
 		<?php $page_link = get_page_link(); ?>
 		<?php $related = false; ?>
 		<?php $names = array(); ?>
@@ -73,7 +78,7 @@
 			
 			<?php endif; ?>
 			<div class="lb-updated-by">
-			Last updated 
+			Added 
 			by
 			<?php echo $author; ?>
 			on

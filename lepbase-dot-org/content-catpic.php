@@ -8,18 +8,33 @@
 			$names[] = $tag->name;
 		} ?>
 	<?php $page_cat = single_cat_title( '', false ); ?>
+	<?php if (!$page_cat){ $categories = get_the_category(get_the_ID());
+				foreach ($categories as $category){
+	 				if ($category->name == 'featured'){
+						continue;
+					}
+	 				$page_cat = $category->name;
+	 			}
+	 } ?>
+	<?php $meta = get_post_meta(get_the_ID(), 'link', true); ?>
 	
 	<div class="lb-excerpt-box clearfix">
+		<?php if ($meta){ ?>
+		<a class="lb-excerpt" href="<?php echo $meta ?>" title="<?php the_title()?>">
+		<?php } else { ?>
 		<a class="lb-excerpt" href="<?php the_permalink() ?>" title="<?php the_title()?>">
+		<?php } ?>
 		<?php // check if the post has a Post Thumbnail assigned to it.
 				if ( has_post_thumbnail() ) {
 					//echo '<div class="lb-excerpt-topbox">';
 					//echo the_post_thumbnail('medium');
 					//echo '</div><!--lb-excerpt-topbox-->';
 				} ?>
+		<?php if ($page_cat){ ?>
 		<div class="lb-excerpt-catbox">
 			<img class="lb-excerpt-catpic" src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/<?php echo $page_cat ?>-icon.png" />
 		</div><!--lb-excerpt-catbox-->
+		<?php } ?>
 		<?php //if ( has_post_thumbnail() ) {
 				//echo '<div class="lb-excerpt-bottombox">';
 				//echo $title;

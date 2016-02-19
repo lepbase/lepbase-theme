@@ -793,7 +793,7 @@ img.wp-smiley,
 .site-main .sidebar-container {
 	height: 0;
 	position: absolute;
-	top: 40px;
+	top: 0px;
 	width: 100%;
 	z-index: 1;
 }
@@ -2786,7 +2786,7 @@ footer.entry-meta {
 		margin: 0 auto;
 		max-width: 604px;
 		position: relative;
-		top: 20px;
+		top: 0px;
 	}
 
 	.site-main .widget-area {
@@ -3356,6 +3356,7 @@ article {
 	background-color: #333333;
 	color: #ffffff;
 	margin: 0px;
+	position:relative;
 	border-radius: 6px;
 }
 
@@ -3380,9 +3381,8 @@ a.lb-excerpt:hover {
 	border-bottom: 2px solid #ffffff;
 	color: #ffffff;
 	background-color: rgba(51,51,51,0.75);
-	top: 50%;
-	bottom: 50%;
-	position:relative;
+	bottom: 5%;
+	position:absolute;
 	margin-left: 5%;
 }
 
@@ -3420,6 +3420,7 @@ a.lb-excerpt:hover {
 	border-radius: 10px;
 	padding: 4px;
 	overflow:hidden;
+	z-index:1;
 }
 
 
@@ -3515,6 +3516,7 @@ a.lb-excerpt:hover {
 	float: right;
 	background-color: #f3f3f3;
 	max-width: 200px;
+	margin-right: -150px;
 	border: none;
 	overflow:hidden;
 	text-align:right;
@@ -3693,4 +3695,36 @@ h2.lb-menu-label {
 	margin-bottom:1em;
 	color:#999999;
 	font-style: italic;
+}
+
+.lb-hplinks {
+	font-size:14px;
+	float:right;
+	margin-top:-22px;
+}
+
+.lb-40high {
+	height:40px;
+	float:left;
+}
+
+.lb-home-text-top,
+.lb-home-text-bottom {
+	margin: 10px;
+	padding: 5px;
+}
+
+.lb-home-text-top {
+	border-bottom: solid 3px #333333;
+	padding-bottom: 15px;
+}
+
+.lb-home-text-bottom {
+	border-top: solid 3px #333333;
+	margin-top: 0px;
+	padding-top: 15px;
+}
+
+.site-footer {
+	height:0px;
 }

@@ -43,14 +43,14 @@
 			$cats = get_categories(array('orderby'=>'id')); 
 			$scats = array();
 			foreach ($cats as $cat) {
-				if ($cat->name == 'more'){
-					$scats[] = $cat;
+				if ($cat->name == 'blog'){
+					array_unshift($scats,$cat);
 				}
 				elseif ($cat->name == 'home' || $cat->name == 'featured'){
 					continue;
 				}
 				else {
-					array_unshift($scats,$cat);
+					$scats[] = $cat;
 				}
 			}
 				// loop through the categories
