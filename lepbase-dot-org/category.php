@@ -14,6 +14,25 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
+<?php $page_cat = single_cat_title( '', false ); ?>
+	<?php if (!$page_cat){ $categories = get_the_category(get_the_ID());
+				foreach ($categories as $category){
+	 				if ($category->name == 'featured'){
+						continue;
+					}
+	 				$page_cat = $category->name;
+	 			}
+	 } 
+if ($page_cat){ 
+  $pre = get_page_by_title( $page_cat );
+  if ($pre){
+	echo '<div class="lb-home-text-top">';
+  	echo $pre->post_content;
+	echo "</div>";
+  }
+}
+?>
+
 		<?php if ( have_posts() ) : ?>
 			<!--header class="archive-header">
 				<h1 class="archive-title"><?php printf( __( 'Category Archives: %s', 'lepbasedotorg' ), single_cat_title( '', false ) ); ?></h1>
