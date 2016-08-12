@@ -10,7 +10,7 @@
 	<?php $page_cat = single_cat_title( '', false ); ?>
 	<?php if (!$page_cat){ $categories = get_the_category(get_the_ID());
 				foreach ($categories as $category){
-	 				if ($category->name == 'featured'){
+	 				if ($category->name == 'featured' || $category->name == 'toprow'){
 						continue;
 					}
 	 				$page_cat = $category->name;

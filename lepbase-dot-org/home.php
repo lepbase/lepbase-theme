@@ -23,6 +23,25 @@ get_header(); ?>
   }
 ?>
 
+
+<div class="lb-category-posts">
+		<?php $args = array( 'category' => get_cat_ID('toprow'), 'numberposts' => 3 );
+
+$myposts = get_posts( $args );
+foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+	<?php get_template_part( 'content', 'catpic' ); ?>
+<?php endforeach; 
+wp_reset_postdata();?>
+
+<?php 
+  $pre = get_page_by_title( 'between' );
+  if ($pre){
+	echo '<div class="lb-home-text-top lb-home-text-bottom">';
+  	echo $pre->post_content;
+	echo "</div>";
+  }
+?>
+
 <div class="lb-category-posts">
 		<?php $args = array( 'category' => get_cat_ID('featured'), 'numberposts' => 9 );
 
@@ -43,7 +62,7 @@ wp_reset_postdata();?>
   }
 ?>
 
-			<?php lepbasedotorg_paging_nav(); ?>
+			<!--?php lepbasedotorg_paging_nav(); ?-->
 
 
 		</div><!-- #content -->
