@@ -31,11 +31,14 @@
 </head>
 
 <body <?php body_class(); ?>>
+       <?php include_once("analyticstracking.php") ?>
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
 		<div class="header-main clearfix">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="lb-site-title"><img class="lb-site-logo" src="<?php echo get_site_icon_url( ); ?>"/> <?php bloginfo( 'name' ); ?></div></a>
-
+<!--			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="lb-site-title"><img class="lb-site-logo" src="<?php echo get_site_icon_url( ); ?>"/> <?php bloginfo( 'name' ); ?><span class="lb-site-tagline">[<?php bloginfo( 'description' ); ?>]</span></div></a>
+-->
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="lb-site-title"><img class="lb-site-logo" src="<?php echo get_site_icon_url( ); ?>"/><img class="lb-site-long-logo"
+src="/wp-content/themes/lepbase-dot-org/images/wordpress-lepbase.png" /></div></a>';
 			
 			
 			<?php
@@ -46,7 +49,7 @@
 				if ($cat->name == 'blog'){
 					array_unshift($scats,$cat);
 				}
-				elseif ($cat->name == 'home' || $cat->name == 'featured'){
+				elseif ($cat->name == 'home' || $cat->name == 'featured' || $cat->name == 'toprow'){
 					continue;
 				}
 				else {

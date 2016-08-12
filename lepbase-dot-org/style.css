@@ -3465,9 +3465,17 @@ a.lb-excerpt:hover {
 
 .lb-site-logo {
 	vertical-align:middle;
-	height:40px;
-	width:40px;
+	height:30px;
+	width:30px;
+	margin-top: -1px;
+}
+
+.lb-site-long-logo {
+	vertical-align:middle;
+	height:50px;
+	width:150px;
 	margin-top: -5px;
+        margin-left: -6px;
 }
 
 .lb-excerpt-linkicon {
@@ -3597,6 +3605,7 @@ a.lb-excerpt:hover {
 	padding: 5px;
 	border: 2px solid #23282d;
 	border-radius: 4px;
+        margin-top:16px;
 }
 
 .lb-menu-category:hover {
@@ -3626,6 +3635,7 @@ h2.lb-menu-label {
 	padding: 5px;
 	background: #333333;
 	text-align:center;
+        height:80px;
 }
 
 
@@ -3685,8 +3695,18 @@ h2.lb-menu-label {
 
 .lb-site-title {
 	float:left;
-	height:30px;
+	height:40px;
 	font-size: 25px;
+	color: #FE7001;
+        margin-top:11px;
+}
+
+
+.lb-site-tagline {
+	height:15px;
+        margin-left: 10px;
+        font-family:monospace;
+	font-size: 14px;
 	color: #FE7001;
 }
 
@@ -3727,4 +3747,47 @@ h2.lb-menu-label {
 
 .site-footer {
 	height:0px;
+}
+
+/* =Index pagination
+----------------------------------------------- */
+
+/* The containing box with a nice white background */
+.paging-navigation {
+	font-family: sans-serif;
+	text-align:center;
+	padding: 1em;
+	background: #fff;
+	background: hsl(0, 0%, 100%);
+}
+
+/* Remove bullets and list indentation */
+.paging-navigation ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Make the list items appear horizontally */
+.paging-navigation li {
+	display: inline;
+}
+
+/* Give each link and the current item some padding to make them easy to click */
+a.page-numbers,
+span.page-numbers {
+	padding: .3em .7em;
+	color: #333;
+	color: hsl(0, 0%, 20%);
+}
+
+/* Link hover state */
+a:hover.page-numbers {
+	color: #FE7001;
+}
+
+/* Current page bold and dark */
+.paging-navigation .current {
+	font-weight: bold;
+	color: #FE7001;
 }
